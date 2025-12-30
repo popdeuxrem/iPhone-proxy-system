@@ -1,0 +1,24 @@
+{
+  "name": "iphone-proxy-automation",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "scrape": "node scripts/scraper.js",
+    "validate": "node scripts/validator.js",
+    "generate": "node scripts/generator.js",
+    "build": "npm run scrape && npm run validate && npm run generate",
+    "test": "node scripts/test.js",
+    "switch:us": "node scripts/switch-country.js US",
+    "switch:uk": "node scripts/switch-country.js GB",
+    "switch:germany": "node scripts/switch-country.js DE",
+    "switch:japan": "node scripts/switch-country.js JP",
+    "switch:canada": "node scripts/switch-country.js CA",
+    "switch:au": "node scripts/switch-country.js AU",
+    "switch:sg": "node scripts/switch-country.js SG"
+  },
+  "dependencies": {
+    "axios": "1.6.0",
+    "cheerio": "1.0.0-rc.12",
+    "fs-extra": "11.2.0"
+  }
+}

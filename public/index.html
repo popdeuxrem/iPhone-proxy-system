@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Proxy Dashboard</title>
+    <style>
+        body { font-family: -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .card { background: #f5f5f5; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+        .proxy { background: white; padding: 10px; margin: 5px; border-radius: 5px; }
+        code { background: #eee; padding: 2px 5px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>📱 iPhone Proxy Dashboard</h1>
+    
+    <div class="card">
+        <h2>Configuration</h2>
+        <div id="config">Loading...</div>
+    </div>
+    
+    <div class="card">
+        <h2>Current Proxies</h2>
+        <div id="proxies">Loading...</div>
+    </div>
+    
+    <div class="card">
+        <h2>Setup Instructions</h2>
+        <p>1. On iPhone: <strong>Settings → Wi-Fi → ⓘ → Configure Proxy → Automatic</strong></p>
+        <p>2. Enter PAC URL: <code id="pacUrl"></code></p>
+        <p>3. Save and enjoy!</p>
+    </div>
+
+    <script>
+        async function loadData() {
+            // Load status
+            const statusRes = await fetch('status.json');
+            const status = await statusRes.json();
+            
+            // Load proxies
+            const proxiesRes = await fetch('data/proxies.json');
+            const proxies = await proxiesRes.json();
+            
+            // Update config
+            document.getElementById('config').innerHTML = `
+                <p><strong>Target Country:</strong> ${status.config.targetCountry || 'Not set'}</p>
+                <p><strong>Last Updated:</strong> ${status.timestamp}</p>
+                <p><strong>Working Proxies:</strong> ${status.proxies.total} (${status.proxies.targetCountry || 0} in target country)</p>
+            `;
+            
+            // Update PAC URL
+            document.getElementById('pacUrl').textContent = status.pacUrl || window.location.origin + '/proxy.pac';
+            
+            // Update proxies list
+            const proxiesHtml = proxies.proxies.slice(0, 10).map(p => `
+                <div class="proxy">
+                    ${p.proxy} 
+                    <small>(${p.country.code} - ${p.latency}ms) 
+                    ${p.isTargetCountry ? '🎯' : '🌍'}
+                    ${p.ioSCompatible ? '📱' : ''}
+                    </small>
+                </div>
+            `).join('');
+            
+            document.getElementById('proxies').innerHTML = proxiesHtml || 'No proxies available';
+        }
+        
+        loadData();
+        setInterval(loadData, 30000); // Refresh every 30 seconds
+    </script>
+</body>
+</html>

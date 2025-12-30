@@ -1,0 +1,28 @@
+{
+  "targetCountry": "US",
+  "pacUrl": "https://github.com/popdeuxrem/iPhone-proxy-system/proxy.pac",
+  "bypassDomains": [
+    "apple.com",
+    "icloud.com",
+    "mzstatic.com",
+    "appstore.com",
+    "paypal.com",
+    "bank",
+    "chase.com",
+    "wellsfargo.com"
+  ],
+  "forceProxyDomains": [
+    "netflix.com",
+    "hulu.com",
+    "disneyplus.com",
+    "hbonow.com",
+    "nflxvideo.net"
+  ],
+  "sources": [
+    "https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=US&ssl=all&anonymity=all",
+    "https://proxylist.geonode.com/api/proxy-list?limit=100&page=1&sort_by=lastChecked&sort_type=desc&protocols=http&country=US",
+    "https://www.proxy-list.download/api/v1/get?type=http&country=US",
+    "https://api.openproxylist.xyz/http.txt",
+    "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt"
+  ]
+}
