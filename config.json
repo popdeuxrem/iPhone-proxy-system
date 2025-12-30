@@ -4,7 +4,20 @@
     "apiUrl": "https://proxy.webshare.io/api/v2/proxy/list/download/mcfkakesdposgeiulflehvlbexvwxdjpoottephv/-/any/sourceip/direct/-/?plan_id=11906572",
     "authFormat": "none"
   },
-  "forceProxyDomains": ["example.com", "github.com"],
-  "bypassDomains": ["apple.com", "icloud.com"],
-  "pacUrl": "https://popdeuxrem.github.io/iPhone-proxy-system/proxy.pac"
+  "forceProxyDomains": [
+    "example.com",
+    "github.com"
+  ],
+  "bypassDomains": [
+    "apple.com",
+    "icloud.com"
+  ],
+  "pacUrl": "https://popdeuxrem.github.io/iPhone-proxy-system/proxy.pac",
+  "sources": [
+    "https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=US&ssl=all&anonymity=all",
+    "https://proxylist.geonode.com/api/proxy-list?limit=100&page=1&sort_by=lastChecked&sort_type=desc&protocols=http&country=US",
+    "https://www.proxy-list.download/api/v1/get?type=http&country=US",
+    "https://api.openproxylist.xyz/http.txt",
+    "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt"
+  ]
 }
