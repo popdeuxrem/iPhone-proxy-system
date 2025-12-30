@@ -1,34 +1,31 @@
 import fs from 'fs-extra';
 import { v4 as uuidv4 } from 'uuid';
+import { validateAllProxies } from './validator.js';
 
 async function generateMobileConfig() {
   try {
-    // Load config and proxy data
     const config = await fs.readJson('config.json');
     const data = await fs.readJson('data/proxies.json');
-    
+
     if (!config.pacUrl) {
       console.log('⚠️ No pacUrl in config.json, skipping mobileconfig');
       return;
     }
-    
-    // Generate unique IDs
+
+    const results = await validateAllProxies('data/proxies.json', config.targetCountry || 'US', config.preferredPorts || []);
+    const workingProxy = results.find(p => p.working) || { proxy: '' };
+    const [proxyHost, proxyPort] = workingProxy.proxy.split(':');
+
     const rootUUID = uuidv4();
     const httpUUID = uuidv4();
     const proxyUUID = uuidv4();
-    
-    // Get proxy details for manual proxy fallback
-    const primaryProxy = data.proxies[0]?.proxy || '';
-    const [proxyHost, proxyPort] = primaryProxy.split(':');
-    
-    // Create mobile config
+
     const mobileConfig = `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
     <key>PayloadContent</key>
     <array>
-        <!-- PAC Auto Configuration -->
         <dict>
             <key>PayloadType</key>
             <string>com.apple.proxy.http.global</string>
@@ -43,8 +40,6 @@ async function generateMobileConfig() {
             <key>ProxyAutoConfigURLString</key>
             <string>${config.pacUrl}</string>
         </dict>
-        
-        <!-- Manual Proxy (Fallback) -->
         <dict>
             <key>PayloadType</key>
             <string>com.apple.proxy.shared</string>
@@ -83,11 +78,11 @@ async function generateMobileConfig() {
     <integer>1</integer>
 </dict>
 </plist>`;
-    
+
     await fs.writeFile('public/proxy.mobileconfig', mobileConfig);
     console.log('✅ Generated mobile configuration profile');
     console.log(`📱 Install: ${config.pacUrl.replace('proxy.pac', 'proxy.mobileconfig')}`);
-    
+
   } catch (error) {
     console.error('Error generating mobile config:', error.message);
   }
