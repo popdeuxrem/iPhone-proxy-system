@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-30T19:09:31.833Z",
+  "timestamp": "2025-12-30T19:09:51.214Z",
   "config": {
     "targetCountry": "US",
     "requestedCountry": "US"
@@ -13,94 +13,10 @@
   },
   "proxies": [
     {
-      "proxy": "216.24.57.109:80",
-      "ip": "216.24.57.109",
-      "port": 80,
-      "latency": 39,
-      "working": true,
-      "country": {
-        "code": "US",
-        "name": "United States",
-        "success": true
-      },
-      "isTargetCountry": true,
-      "ioSCompatible": false
-    },
-    {
-      "proxy": "63.141.128.20:80",
-      "ip": "63.141.128.20",
-      "port": 80,
-      "latency": 40,
-      "working": true,
-      "country": {
-        "code": "US",
-        "name": "United States",
-        "success": true
-      },
-      "isTargetCountry": true,
-      "ioSCompatible": false
-    },
-    {
-      "proxy": "205.233.181.145:80",
-      "ip": "205.233.181.145",
-      "port": 80,
-      "latency": 42,
-      "working": true,
-      "country": {
-        "code": "US",
-        "name": "United States",
-        "success": true
-      },
-      "isTargetCountry": true,
-      "ioSCompatible": false
-    },
-    {
-      "proxy": "69.84.182.162:80",
-      "ip": "69.84.182.162",
-      "port": 80,
-      "latency": 42,
-      "working": true,
-      "country": {
-        "code": "US",
-        "name": "United States",
-        "success": true
-      },
-      "isTargetCountry": true,
-      "ioSCompatible": false
-    },
-    {
       "proxy": "199.34.229.240:80",
       "ip": "199.34.229.240",
       "port": 80,
-      "latency": 43,
-      "working": true,
-      "country": {
-        "code": "US",
-        "name": "United States",
-        "success": true
-      },
-      "isTargetCountry": true,
-      "ioSCompatible": false
-    },
-    {
-      "proxy": "141.193.213.246:80",
-      "ip": "141.193.213.246",
-      "port": 80,
-      "latency": 44,
-      "working": true,
-      "country": {
-        "code": "US",
-        "name": "United States",
-        "success": true
-      },
-      "isTargetCountry": true,
-      "ioSCompatible": false
-    },
-    {
-      "proxy": "216.205.52.59:80",
-      "ip": "216.205.52.59",
-      "port": 80,
-      "latency": 46,
+      "latency": 80,
       "working": true,
       "country": {
         "code": "US",
@@ -114,7 +30,7 @@
       "proxy": "216.205.52.58:80",
       "ip": "216.205.52.58",
       "port": 80,
-      "latency": 47,
+      "latency": 81,
       "working": true,
       "country": {
         "code": "US",
@@ -128,7 +44,35 @@
       "proxy": "159.112.235.96:80",
       "ip": "159.112.235.96",
       "port": 80,
-      "latency": 48,
+      "latency": 81,
+      "working": true,
+      "country": {
+        "code": "US",
+        "name": "United States",
+        "success": true
+      },
+      "isTargetCountry": true,
+      "ioSCompatible": false
+    },
+    {
+      "proxy": "216.205.52.59:80",
+      "ip": "216.205.52.59",
+      "port": 80,
+      "latency": 83,
+      "working": true,
+      "country": {
+        "code": "US",
+        "name": "United States",
+        "success": true
+      },
+      "isTargetCountry": true,
+      "ioSCompatible": false
+    },
+    {
+      "proxy": "216.24.57.109:80",
+      "ip": "216.24.57.109",
+      "port": 80,
+      "latency": 83,
       "working": true,
       "country": {
         "code": "US",
@@ -142,7 +86,63 @@
       "proxy": "184.168.47.88:80",
       "ip": "184.168.47.88",
       "port": 80,
-      "latency": 50,
+      "latency": 83,
+      "working": true,
+      "country": {
+        "code": "US",
+        "name": "United States",
+        "success": true
+      },
+      "isTargetCountry": true,
+      "ioSCompatible": false
+    },
+    {
+      "proxy": "205.233.181.145:80",
+      "ip": "205.233.181.145",
+      "port": 80,
+      "latency": 83,
+      "working": true,
+      "country": {
+        "code": "US",
+        "name": "United States",
+        "success": true
+      },
+      "isTargetCountry": true,
+      "ioSCompatible": false
+    },
+    {
+      "proxy": "69.84.182.162:80",
+      "ip": "69.84.182.162",
+      "port": 80,
+      "latency": 83,
+      "working": true,
+      "country": {
+        "code": "US",
+        "name": "United States",
+        "success": true
+      },
+      "isTargetCountry": true,
+      "ioSCompatible": false
+    },
+    {
+      "proxy": "141.193.213.246:80",
+      "ip": "141.193.213.246",
+      "port": 80,
+      "latency": 86,
+      "working": true,
+      "country": {
+        "code": "US",
+        "name": "United States",
+        "success": true
+      },
+      "isTargetCountry": true,
+      "ioSCompatible": false
+    },
+    {
+      "proxy": "63.141.128.20:80",
+      "ip": "63.141.128.20",
+      "port": 80,
+      "latency": 88,
       "working": true,
       "country": {
         "code": "US",
