@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <!-- PAC Auto Configuration -->
+        <dict>
+            <key>PayloadType</key>
+            <string>com.apple.proxy.http.global</string>
+            <key>PayloadIdentifier</key>
+            <string>com.iphone.proxy.pac.d415e60f-e02f-4acb-842d-6ee9184af121</string>
+            <key>PayloadUUID</key>
+            <string>d415e60f-e02f-4acb-842d-6ee9184af121</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>ProxyAutoConfigEnable</key>
+            <integer>1</integer>
+            <key>ProxyAutoConfigURLString</key>
+            <string>https://github.com/popdeuxrem/iPhone-proxy-system/proxy.pac</string>
+        </dict>
+        
+        <!-- Manual Proxy (Fallback) -->
+        <dict>
+            <key>PayloadType</key>
+            <string>com.apple.proxy.shared</string>
+            <key>PayloadIdentifier</key>
+            <string>com.iphone.proxy.manual.054b672d-58ac-4f70-a47b-062b316a23d4</string>
+            <key>PayloadUUID</key>
+            <string>054b672d-58ac-4f70-a47b-062b316a23d4</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>Proxies</key>
+            <dict>
+                <key>HTTPEnable</key>
+                <integer>1</integer>
+                <key>HTTPPort</key>
+                <integer>80</integer>
+                <key>HTTPProxy</key>
+                <string>216.24.57.109</string>
+                <key>HTTPSEnable</key>
+                <integer>1</integer>
+                <key>HTTPSPort</key>
+                <integer>80</integer>
+                <key>HTTPSProxy</key>
+                <string>216.24.57.109</string>
+            </dict>
+        </dict>
+    </array>
+    <key>PayloadDisplayName</key>
+    <string>iPhone Proxy Configuration</string>
+    <key>PayloadIdentifier</key>
+    <string>com.iphone.proxy.79ecea9b-a70e-4d04-8f9d-b000f34e6b32</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>79ecea9b-a70e-4d04-8f9d-b000f34e6b32</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>

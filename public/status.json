@@ -1,6 +1,7 @@
 {
-  "timestamp": "2025-12-30T18:02:14.162Z",
-  "pacUrl": "https://YOUR_USERNAME.github.io/iPhone-proxy-system/proxy.pac",
+  "timestamp": "2025-12-30T19:09:32.181Z",
+  "pacUrl": "https://github.com/popdeuxrem/iPhone-proxy-system/proxy.pac",
+  "mobileConfigUrl": "https://github.com/popdeuxrem/iPhone-proxy-system/proxy.mobileconfig",
   "config": {
     "targetCountry": "US",
     "bypassDomains": [
@@ -22,18 +23,19 @@
     ]
   },
   "proxies": {
-    "total": 11,
+    "total": 10,
     "targetCountry": 10,
     "list": [
-      "174.136.204.40:80",
-      "216.205.52.17:80",
-      "199.34.230.67:80",
-      "160.153.0.75:80",
-      "104.254.140.43:80"
+      "216.24.57.109:80",
+      "63.141.128.20:80",
+      "205.233.181.145:80",
+      "69.84.182.162:80",
+      "199.34.229.240:80"
     ]
   },
   "instructions": {
-    "iphone": "Settings → Wi-Fi → ⓘ → Configure Proxy → Automatic",
-    "pacUrl": "https://YOUR_USERNAME.github.io/iPhone-proxy-system/proxy.pac"
+    "iphonePac": "Settings → Wi-Fi → ⓘ → Configure Proxy → Automatic",
+    "iphoneMobileConfig": "Open proxy.mobileconfig in Safari to install",
+    "pacUrl": "https://github.com/popdeuxrem/iPhone-proxy-system/proxy.pac"
   }
 }

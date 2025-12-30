@@ -2,9 +2,9 @@ function FindProxyForURL(url, host) {
   host = host.toLowerCase();
   
   // ==== Configuration ====
-  // Generated: 2025-12-30T18:02:14.161Z
+  // Generated: 2025-12-30T19:09:32.068Z
   // Target country: US
-  // Proxies: 11 working (10 in target country)
+  // Proxies: 10 working (10 in target country)
   // ========================
   
   // 1. Local & Private Networks (DIRECT)
@@ -64,8 +64,8 @@ function FindProxyForURL(url, host) {
     shExpMatch(host, "*.hbonow.com") ||
     dnsDomainIs(host, "nflxvideo.net") ||
     shExpMatch(host, "*.nflxvideo.net")
-  ) return "PROXY 174.136.204.40:80; PROXY 216.205.52.17:80; PROXY 199.34.230.67:80; PROXY 160.153.0.75:80; PROXY 104.254.140.43:80; PROXY 159.246.55.53:80; PROXY 69.84.182.67:80; PROXY 66.81.247.27:80; DIRECT";
+  ) return "PROXY 216.24.57.109:80; PROXY 63.141.128.20:80; PROXY 205.233.181.145:80; PROXY 69.84.182.162:80; PROXY 199.34.229.240:80; PROXY 141.193.213.246:80; PROXY 216.205.52.59:80; PROXY 216.205.52.58:80; DIRECT";
   
   // 4. Default Routing
-  return "PROXY 174.136.204.40:80; PROXY 216.205.52.17:80; PROXY 199.34.230.67:80; PROXY 160.153.0.75:80; PROXY 104.254.140.43:80; PROXY 159.246.55.53:80; PROXY 69.84.182.67:80; PROXY 66.81.247.27:80; DIRECT";
+  return "PROXY 216.24.57.109:80; PROXY 63.141.128.20:80; PROXY 205.233.181.145:80; PROXY 69.84.182.162:80; PROXY 199.34.229.240:80; PROXY 141.193.213.246:80; PROXY 216.205.52.59:80; PROXY 216.205.52.58:80; DIRECT";
 }

@@ -105,10 +105,19 @@ ${forceCode}
   
   await fs.writeFile('public/proxy.pac', pac);
   
+  // Generate mobileconfig
+  try {
+    const { execSync } = await import('child_process');
+    execSync('node scripts/generate-mobileconfig.js', { stdio: 'inherit' });
+  } catch (error) {
+    console.log('Note: Install uuid package for mobileconfig: npm install uuid');
+  }
+  
   // Generate status file
   const status = {
     timestamp: new Date().toISOString(),
     pacUrl: config.pacUrl || 'https://localhost/proxy.pac',
+    mobileConfigUrl: config.pacUrl ? config.pacUrl.replace('proxy.pac', 'proxy.mobileconfig') : null,
     config: {
       targetCountry: data.config?.targetCountry,
       bypassDomains: config.bypassDomains,
@@ -120,7 +129,8 @@ ${forceCode}
       list: proxyList.slice(0, 5)
     },
     instructions: {
-      iphone: 'Settings → Wi-Fi → ⓘ → Configure Proxy → Automatic',
+      iphonePac: 'Settings → Wi-Fi → ⓘ → Configure Proxy → Automatic',
+      iphoneMobileConfig: 'Open proxy.mobileconfig in Safari to install',
       pacUrl: config.pacUrl || 'Update config.json with your GitHub Pages URL'
     }
   };
@@ -129,6 +139,7 @@ ${forceCode}
   
   console.log('✅ Generated files:');
   console.log(`   - public/proxy.pac (${proxyList.length} proxies)`);
+  console.log(`   - public/proxy.mobileconfig (if uuid installed)`);
   console.log(`   - public/status.json`);
   
   if (proxyList.length > 0) {
@@ -140,7 +151,10 @@ ${forceCode}
     });
   }
   
-  console.log(`\n📱 PAC URL: ${config.pacUrl || 'Set pacUrl in config.json'}`);
+  if (config.pacUrl) {
+    console.log(`\n📱 PAC URL: ${config.pacUrl}`);
+    console.log(`📱 MobileConfig: ${config.pacUrl.replace('proxy.pac', 'proxy.mobileconfig')}`);
+  }
 }
 
 generate().catch(console.error);
