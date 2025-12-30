@@ -6,7 +6,7 @@
     "scrape": "node scripts/scraper.js",
     "validate": "node scripts/validator.js",
     "generate": "node scripts/generator.js",
-    "build": "npm run scrape && npm run validate && npm run generate",
+    "build": "node scripts/full-build.js",
     "test": "node scripts/test.js",
     "switch:us": "node scripts/switch-country.js US",
     "switch:uk": "node scripts/switch-country.js GB",
@@ -17,9 +17,9 @@
     "switch:sg": "node scripts/switch-country.js SG"
   },
   "dependencies": {
-    "axios": "1.6.0",
+    "axios": "^1.13.2",
     "cheerio": "1.0.0-rc.12",
-    "fs-extra": "11.2.0",
+    "fs-extra": "^11.3.3",
     "uuid": "^9.0.0"
   }
 }

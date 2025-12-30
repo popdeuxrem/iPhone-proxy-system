@@ -3,7 +3,7 @@ name: Update Proxies and Deploy
 on:
   schedule:
     - cron: '0 */2 * * *'  # Every 2 hours
-  workflow_dispatch:        # Manual trigger
+  workflow_dispatch:
   push:
     branches: [ main ]
 
@@ -15,26 +15,26 @@ permissions:
 jobs:
   update-proxies:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
-    
+
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20'
         cache: 'npm'
-    
+
     - name: Install dependencies
       run: npm ci
-    
+
     - name: Build proxy system
-      run: npm run build
-    
+      run: node scripts/full-build.js
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
@@ -42,7 +42,7 @@ jobs:
         publish_dir: ./public
         publish_branch: gh-pages
         force_orphan: true
-    
+
     - name: Commit updated data files
       run: |
         git config --global user.name 'GitHub Actions'
