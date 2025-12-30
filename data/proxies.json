@@ -1,36 +1,22 @@
 {
-  "timestamp": "2025-12-30T18:02:13.897Z",
+  "timestamp": "2025-12-30T18:35:06.866Z",
   "config": {
     "targetCountry": "US",
     "requestedCountry": "US"
   },
   "stats": {
-    "total": 86118,
+    "total": 86254,
     "tested": 11,
-    "working": 11,
+    "working": 10,
     "targetCountry": 10,
-    "iPhoneCompatible": 1
+    "iPhoneCompatible": 0
   },
   "proxies": [
     {
-      "proxy": "174.136.204.40:80",
-      "ip": "174.136.204.40",
+      "proxy": "8.35.211.137:80",
+      "ip": "8.35.211.137",
       "port": 80,
-      "latency": 99,
-      "working": true,
-      "country": {
-        "code": "US",
-        "name": "United States",
-        "success": true
-      },
-      "isTargetCountry": true,
-      "ioSCompatible": true
-    },
-    {
-      "proxy": "216.205.52.17:80",
-      "ip": "216.205.52.17",
-      "port": 80,
-      "latency": 38,
+      "latency": 46,
       "working": true,
       "country": {
         "code": "US",
@@ -41,10 +27,10 @@
       "ioSCompatible": false
     },
     {
-      "proxy": "199.34.230.67:80",
-      "ip": "199.34.230.67",
+      "proxy": "205.233.181.86:80",
+      "ip": "205.233.181.86",
       "port": 80,
-      "latency": 42,
+      "latency": 46,
       "working": true,
       "country": {
         "code": "US",
@@ -55,10 +41,10 @@
       "ioSCompatible": false
     },
     {
-      "proxy": "160.153.0.75:80",
-      "ip": "160.153.0.75",
+      "proxy": "216.205.52.101:80",
+      "ip": "216.205.52.101",
       "port": 80,
-      "latency": 43,
+      "latency": 52,
       "working": true,
       "country": {
         "code": "US",
@@ -69,10 +55,10 @@
       "ioSCompatible": false
     },
     {
-      "proxy": "104.254.140.43:80",
-      "ip": "104.254.140.43",
+      "proxy": "170.114.46.203:80",
+      "ip": "170.114.46.203",
       "port": 80,
-      "latency": 43,
+      "latency": 53,
       "working": true,
       "country": {
         "code": "US",
@@ -83,10 +69,10 @@
       "ioSCompatible": false
     },
     {
-      "proxy": "159.246.55.53:80",
-      "ip": "159.246.55.53",
+      "proxy": "66.235.200.126:80",
+      "ip": "66.235.200.126",
       "port": 80,
-      "latency": 44,
+      "latency": 56,
       "working": true,
       "country": {
         "code": "US",
@@ -97,10 +83,10 @@
       "ioSCompatible": false
     },
     {
-      "proxy": "69.84.182.67:80",
-      "ip": "69.84.182.67",
+      "proxy": "159.112.235.167:80",
+      "ip": "159.112.235.167",
       "port": 80,
-      "latency": 45,
+      "latency": 65,
       "working": true,
       "country": {
         "code": "US",
@@ -111,10 +97,10 @@
       "ioSCompatible": false
     },
     {
-      "proxy": "66.81.247.27:80",
-      "ip": "66.81.247.27",
+      "proxy": "184.168.47.227:80",
+      "ip": "184.168.47.227",
       "port": 80,
-      "latency": 45,
+      "latency": 73,
       "working": true,
       "country": {
         "code": "US",
@@ -125,10 +111,10 @@
       "ioSCompatible": false
     },
     {
-      "proxy": "188.114.99.58:80",
-      "ip": "188.114.99.58",
+      "proxy": "209.46.30.27:80",
+      "ip": "209.46.30.27",
       "port": 80,
-      "latency": 45,
+      "latency": 75,
       "working": true,
       "country": {
         "code": "US",
@@ -139,10 +125,10 @@
       "ioSCompatible": false
     },
     {
-      "proxy": "184.168.47.98:80",
-      "ip": "184.168.47.98",
+      "proxy": "159.246.55.205:80",
+      "ip": "159.246.55.205",
       "port": 80,
-      "latency": 49,
+      "latency": 76,
       "working": true,
       "country": {
         "code": "US",
@@ -153,17 +139,17 @@
       "ioSCompatible": false
     },
     {
-      "proxy": "172.67.185.193:80",
-      "ip": "172.67.185.193",
+      "proxy": "160.153.0.81:80",
+      "ip": "160.153.0.81",
       "port": 80,
-      "latency": 44,
+      "latency": 81,
       "working": true,
       "country": {
-        "code": "CA",
-        "name": "Canada",
+        "code": "US",
+        "name": "United States",
         "success": true
       },
-      "isTargetCountry": false,
+      "isTargetCountry": true,
       "ioSCompatible": false
     }
   ]
