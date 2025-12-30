@@ -4,27 +4,14 @@
 <dict>
     <key>PayloadContent</key>
     <array>
+        <!-- Manual Proxy (installable on any device) -->
         <dict>
             <key>PayloadType</key>
-            <string>com.apple.proxy.http.global</string>
+            <string>com.apple.proxy.http</string>
             <key>PayloadIdentifier</key>
-            <string>com.iphone.proxy.pac.89bb7740-30d8-43f7-b1ef-326a804bd26d</string>
+            <string>com.iphone.proxy.manual.d634c949-44e5-4520-b343-a11208a83593</string>
             <key>PayloadUUID</key>
-            <string>89bb7740-30d8-43f7-b1ef-326a804bd26d</string>
-            <key>PayloadVersion</key>
-            <integer>1</integer>
-            <key>ProxyAutoConfigEnable</key>
-            <integer>1</integer>
-            <key>ProxyAutoConfigURLString</key>
-            <string>https://github.com/popdeuxrem/iPhone-proxy-system/proxy.pac</string>
-        </dict>
-        <dict>
-            <key>PayloadType</key>
-            <string>com.apple.proxy.shared</string>
-            <key>PayloadIdentifier</key>
-            <string>com.iphone.proxy.manual.74828a6b-b2f6-4fa0-840d-72fd8f4193be</string>
-            <key>PayloadUUID</key>
-            <string>74828a6b-b2f6-4fa0-840d-72fd8f4193be</string>
+            <string>d634c949-44e5-4520-b343-a11208a83593</string>
             <key>PayloadVersion</key>
             <integer>1</integer>
             <key>Proxies</key>
@@ -43,15 +30,31 @@
                 <string>69.84.182.162</string>
             </dict>
         </dict>
+        
+        <!-- PAC Auto Configuration (installable on any device) -->
+        <dict>
+            <key>PayloadType</key>
+            <string>com.apple.proxy.http.global</string>
+            <key>PayloadIdentifier</key>
+            <string>com.iphone.proxy.pac.37785277-2c1c-4cbd-90ed-642ae6c6403f</string>
+            <key>PayloadUUID</key>
+            <string>37785277-2c1c-4cbd-90ed-642ae6c6403f</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>ProxyAutoConfigEnable</key>
+            <integer>1</integer>
+            <key>ProxyAutoConfigURLString</key>
+            <string>https://github.com/popdeuxrem/iPhone-proxy-system/proxy.pac</string>
+        </dict>
     </array>
     <key>PayloadDisplayName</key>
     <string>iPhone Proxy Configuration</string>
     <key>PayloadIdentifier</key>
-    <string>com.iphone.proxy.6ead603b-0f87-41a7-9624-8c754dcadd64</string>
+    <string>com.iphone.proxy.13c9b24d-010d-4a15-9842-99b1bfc75188</string>
     <key>PayloadType</key>
     <string>Configuration</string>
     <key>PayloadUUID</key>
-    <string>6ead603b-0f87-41a7-9624-8c754dcadd64</string>
+    <string>13c9b24d-010d-4a15-9842-99b1bfc75188</string>
     <key>PayloadVersion</key>
     <integer>1</integer>
 </dict>

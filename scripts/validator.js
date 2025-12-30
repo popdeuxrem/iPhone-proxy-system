@@ -1,6 +1,8 @@
 import axios from 'axios';
 import fs from 'fs-extra';
-import { performance } from 'perf_hooks';
+
+const failureCounts = {};
+const MAX_SSL_FAILURES = 2;
 
 async function getCountryForIP(ip) {
   try {
@@ -16,34 +18,34 @@ async function getCountryForIP(ip) {
   }
 }
 
-async function validateProxy(proxy, targetCountry = 'US') {
+async function validateProxy(proxy, targetCountry='US') {
   const [ip, portStr] = proxy.split(':');
-  const port = parseInt(portStr);
-  if (!ip || isNaN(port) || port < 1 || port > 65535) {
-    return { proxy, working: false, latency: null, country: { code: '??', name: 'Unknown' } };
-  }
+  const port = parseInt(portStr || '0');
+  if (!ip || isNaN(port) || port < 1 || port > 65535) return { proxy, working: false, reason: 'Invalid format', latency: null };
 
-  const start = performance.now();
+  const sslFailures = failureCounts[proxy] || 0;
+  if (sslFailures > MAX_SSL_FAILURES) return { proxy, working: false, reason: 'Repeated SSL failure', latency: null };
+
+  const start = Date.now();
   try {
-    // Simple HTTP GET to test proxy
-    await axios.get('http://example.com', {
-      proxy: { host: ip, port },
-      timeout: 5000,
-      validateStatus: () => true
-    });
-    const latency = Math.round(performance.now() - start);
+    await axios.get('http://www.google.com', { proxy: { host: ip, port }, timeout: 5000 });
+    const latency = Date.now() - start;
     const country = await getCountryForIP(ip);
-    return { proxy, working: true, latency, country };
-  } catch {
-    return { proxy, working: false, latency: null, country: { code: '??', name: 'Unknown' } };
+    return { proxy, working: true, latency, country: country.code || 'Unknown' };
+  } catch (err) {
+    failureCounts[proxy] = sslFailures + 1;
+    return { proxy, working: false, reason: err.message, latency: null, country: null };
   }
 }
 
-export async function validateAllProxies(filePath, targetCountry = 'US') {
-  const data = await fs.readJson(filePath);
+async function validateAllProxies(file='data/proxies.json', targetCountry='US') {
+  const data = await fs.readJson(file);
   const results = [];
-  for (const p of data.proxies) {
-    results.push(await validateProxy(p.proxy, targetCountry));
+  for (const p of data.proxies || []) {
+    const res = await validateProxy(p.proxy, targetCountry);
+    results.push(res);
   }
   return results;
 }
+
+export { validateProxy, validateAllProxies };
