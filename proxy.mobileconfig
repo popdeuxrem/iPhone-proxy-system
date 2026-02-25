@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+      <key>PayloadType</key>
+      <string>com.apple.proxy.managed</string>
+      <key>ProxyAutoConfigEnable</key>
+      <true/>
+      <key>ProxyAutoConfigURLString</key>
+      <string>https://popdeuxrem.github.io/iPhone-proxy-system/proxy.pac</string>
+      <key>PayloadIdentifier</key>
+      <string>com.proxy.automation.proxy</string>
+      <key>PayloadUUID</key>
+      <string>16dac3ea-0b42-41f5-8738-744f635f70df</string>
+      <key>PayloadDisplayName</key>
+      <string>iPhone Proxy Automation</string>
+    </dict>
+  </array>
+  <key>PayloadType</key>
+  <string>Configuration</string>
+  <key>PayloadVersion</key>
+  <integer>1</integer>
+  <key>PayloadIdentifier</key>
+  <string>com.proxy.automation</string>
+  <key>PayloadUUID</key>
+  <string>0e0018b3-5699-4b7b-8213-1b52f97b0b5b</string>
+  <key>PayloadDisplayName</key>
+  <string>iPhone Proxy Automation Profile</string>
+</dict>
+</plist>

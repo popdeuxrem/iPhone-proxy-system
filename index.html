@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Proxy Dashboard</title>
+    <style>
+        body { font-family: -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #0d1117; color: #c9d1d9; }
+        .card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+        .btn { display: inline-block; background: #238636; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; margin: 5px; }
+        .btn.secondary { background: #1f6feb; }
+        code { background: #0d1117; padding: 4px 8px; border-radius: 4px; font-family: monospace; }
+        .proxy { background: #21262d; padding: 8px 12px; margin: 4px 0; border-radius: 4px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>📱 iPhone Proxy System</h1>
+        <p>Automated proxy configuration with country switching</p>
+    </div>
+    
+    <div class="card">
+        <h2>Quick Setup</h2>
+        <p><strong>Option 1 (Recommended):</strong> Install Mobile Configuration Profile</p>
+        <a href="proxy.mobileconfig" class="btn">📱 Install Mobile Config</a>
+        <p><small>Open this link on iPhone, then install the profile in Settings</small></p>
+        
+        <p><strong>Option 2:</strong> Manual PAC Setup</p>
+        <p>PAC URL: <code id="pacUrl"></code></p>
+        <p>Settings → Wi-Fi → ⓘ → Configure Proxy → Automatic</p>
+    </div>
+    
+    <div class="card">
+        <h2>Current Status</h2>
+        <div id="status">Loading...</div>
+    </div>
+    
+    <div class="card">
+        <h2>Active Proxies</h2>
+        <div id="proxies">Loading...</div>
+    </div>
+    
+    <div class="card">
+        <h2>Quick Actions</h2>
+        <a href="status.json" class="btn secondary">View Raw Status</a>
+        <a href="proxy.pac" class="btn secondary">View PAC File</a>
+        <a href="proxy.mobileconfig" class="btn secondary">Download Mobile Config</a>
+    </div>
+
+    <script>
+        async function loadData() {
+            try {
+                const res = await fetch('status.json');
+                const data = await res.json();
+                
+                // Update PAC URL
+                document.getElementById('pacUrl').textContent = data.pacUrl || 'Not set';
+                
+                // Update status
+                document.getElementById('status').innerHTML = `
+                    <p><strong>Country:</strong> ${data.config.targetCountry || 'Not set'}</p>
+                    <p><strong>Last Updated:</strong> ${new Date(data.timestamp).toLocaleString()}</p>
+                    <p><strong>Working Proxies:</strong> ${data.proxies.total || 0}</p>
+                    <p><strong>In Target Country:</strong> ${data.proxies.targetCountry || 0}</p>
+                `;
+                
+                // Update proxies list
+                if (data.proxies.list && data.proxies.list.length > 0) {
+                    document.getElementById('proxies').innerHTML = data.proxies.list.map(p => 
+                        `<div class="proxy">${p}</div>`
+                    ).join('');
+                } else {
+                    document.getElementById('proxies').innerHTML = '<p>No proxies available</p>';
+                }
+                
+            } catch (error) {
+                document.getElementById('status').innerHTML = '<p>Error loading status</p>';
+                console.error('Failed to load data:', error);
+            }
+        }
+        
+        // Load data on page load
+        loadData();
+        
+        // Auto-refresh every 30 seconds
+        setInterval(loadData, 30000);
+    </script>
+</body>
+</html>
